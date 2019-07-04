@@ -110,3 +110,32 @@ function spotifyThis(input) {
 };
 
 
+//Movie-this
+function movie(input) {
+    if (input === "") {
+
+        var url = "http://www.omdbapi.com/?t=fight+club&apikey=18d5856f";
+
+        axios.get(url).then(
+            function (response) {
+                var Data = response.data;
+
+                console.log("\nTitle: " + Data.Title + "\nYear: " + Data.Year + "\nIMDB Rating: " + Data.Ratings[0].Value + "\nRotten Tomatoes Rating: " + Data.Ratings[1].Value
+                    + "\nCountry: " + Data.Country + "\nLanguage: " + Data.Language + "\nPlot: " + Data.Plot + "\nActors: " + Data.Actors + "\nAwards: " + Data.Awards + "\n\n---------------------------\n");
+
+            });
+    } else {
+        var url = "http://www.omdbapi.com/?t=" + input + "&apikey=18d5856f";
+
+        axios.get(url).then(
+            function (response) {
+                var Data = response.data;
+
+                console.log("\nTitle: " + Data.Title + "\nYear: " + Data.Year + "\nIMDB Rating: " + Data.Ratings[0].Value + "\nRotten Tomatoes Rating: " + Data.Ratings[1].Value
+                    + "\nCountry: " + Data.Country + "\nLanguage: " + Data.Language + "\nPlot: " + Data.Plot + "\nActors: " + Data.Actors + "\nAwards: " + Data.Awards + "\n\n---------------------------\n");
+
+            });
+    }
+};
+
+
