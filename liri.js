@@ -139,3 +139,18 @@ function movie(input) {
 };
 
 
+//Do-what-it-says
+
+function doThis(input) {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        };
+        var Data = data.split(",")
+        cmd = Data[0];
+        input = Data[1].trim();
+        spotifyThis(input);
+
+    });
+}
+
