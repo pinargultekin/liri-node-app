@@ -63,3 +63,50 @@ function concert(input) {
 };
 
 
+//Spotify-this-song
+function spotifyThis(input) {
+    var spotify = new Spotify(keys.spotify);
+
+    if (input === "") {
+        input = "runs the world (girls)";
+        spotify.search({ type: 'track', query: input }, function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+            var Data = data.tracks.items;
+
+            for (var i = 0; i < Data.length; i++) {
+                var results = Data[i];
+                console.log("\nRESULTS \nArtist name: " + results.artists[0].name + "\nSong name: " + results.name + "\nLink: " + results.preview_url + "\nAlbum: " + results.album.name + "\n\n---------------------------\n");
+                // results.push(`-----Spotify Results-----\nArtist Name: ${Data[i].artists[0].name} \nSong: ${Data[i].name} \nAlbum: ${Data[i].album.name} \nSong Preview Link: ${Data[i].external_urls.spotify} \n--------------------------`);
+            }
+
+            // fs.appendFile("log.txt", results.join(''), function(err, results) {
+            //    if (err) throw err;
+            // })
+
+        });
+    } else {
+        spotify.search({ type: 'track', query: input }, function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+            var Data = data.tracks.items;
+
+            for (var i = 0; i < Data.length; i++) {
+
+                var results = Data[i];
+                console.log("\nRESULTS \nArtist name: " + results.artists[0].name + "\nSong name: " + results.name + "\nLink: " + results.preview_url + "\nAlbum: " + results.album.name + "\n\n---------------------------\n");
+                //  results.push(`-----Spotify Results-----\nArtist Name: ${Data[i].artists[0].name} \nSong: ${Data[i].name} \nAlbum: ${Data[i].album.name} \nSong Preview Link: ${Data[i].external_urls.spotify} \n--------------------------`);
+            }
+
+            //  fs.appendFile("log.txt",results.join(""), function(err, Data) {
+            //     if (err) throw err;
+
+            // });
+
+        });
+    }
+};
+
+
