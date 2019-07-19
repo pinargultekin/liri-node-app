@@ -30,4 +30,4 @@ The app is built with;
 
 <a name="display"></a>
 ## App Demo
-<video src="video.webm" alt="app view">
+https://youtu.be/voYfRi4Qd5I
